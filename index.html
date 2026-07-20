@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fahimah Mohammad Hossain | Data Science Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; color: #222; }
+
+    header {
+      background: linear-gradient(135deg, #1F3A5F, #2e6da4);
+      color: white; text-align: center; padding: 60px 20px;
+    }
+    header h1 { font-size: 2.8em; margin-bottom: 10px; }
+    header p { font-size: 1.1em; opacity: 0.9; margin-bottom: 6px; }
+    header a { color: #90cdf4; text-decoration: none; }
+    header a:hover { text-decoration: underline; }
+
+    .badges {
+      margin-top: 16px;
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 10px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 0.85em;
+    }
+
+    section { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+
+    h2 {
+      font-size: 1.5em; color: #1F3A5F;
+      border-bottom: 3px solid #2e6da4;
+      padding-bottom: 8px; margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 1em; line-height: 1.8; color: #444;
+    }
+
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+    .card {
+      background: white; border-radius: 12px;
+      padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card h3 { color: #1F3A5F; margin-bottom: 8px; font-size: 1.1em; }
+    .card .tag {
+      display: inline-block; background: #e8f0fe;
+      color: #2e6da4; font-size: 0.75em;
+      padding: 3px 10px; border-radius: 12px; margin: 4px 4px 12px 0;
+    }
+    .card p { font-size: 0.9em; color: #555; line-height: 1.6; margin-bottom: 16px; }
+    .card a {
+      display: inline-block; background: #1F3A5F; color: white;
+      padding: 8px 18px; border-radius: 6px; text-decoration: none;
+      font-size: 0.85em;
+    }
+    .card a:hover { background: #2e6da4; }
+
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .skill-box {
+      background: white; border-radius: 10px; padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .skill-box h4 { color: #1F3A5F; margin-bottom: 10px; font-size: 0.95em; }
+    .skill-box p { font-size: 0.88em; color: #555; line-height: 1.7; }
+
+    .certs ul { list-style: none; }
+    .certs ul li {
+      background: white; border-left: 4px solid #2e6da4;
+      padding: 12px 16px; margin-bottom: 10px;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      font-size: 0.92em; color: #444;
+    }
+
+    footer {
+      text-align: center; padding: 30px;
+      background: #1F3A5F; color: rgba(255,255,255,0.7);
+      font-size: 0.85em; margin-top: 60px;
+    }
+    footer a { color: #90cdf4; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Fahimah Mohammad Hossain</h1>
+  <p>Aspiring Data Scientist | Jacksonville, FL</p>
+  <p>
+    <a href="mailto:fahimah.01gholami@gmail.com">fahimah.01gholami@gmail.com</a> &nbsp;|&nbsp;
+    <a href="https://github.com/Fahimah5" target="_blank">GitHub</a> &nbsp;|&nbsp;
+    <a href="https://public.tableau.com/app/profile/fahimah.mohammad.hossain" target="_blank">Tableau Public</a>
+  </p>
+  <div class="badges">
+    <span class="badge">🐍 Python</span>
+    <span class="badge">🗄️ SQL</span>
+    <span class="badge">📊 Tableau</span>
+    <span class="badge">📓 Jupyter</span>
+    <span class="badge">🐙 GitHub</span>
+    <span class="badge">🌐 Multilingual</span>
+  </div>
+</header>
+
+<section class="about">
+  <h2>About Me</h2>
+  <p>
+    I'm an aspiring Data Scientist currently pursuing an Associate of Science in Data Science 
+    at Florida State College at Jacksonville (FSCJ), with plans to transfer to the University 
+    of North Florida (UNF) for my Bachelor's in Spring 2027. I combine hands-on project 
+    experience in Python, SQL, and Tableau with a background in healthcare administration 
+    — managing EHR data integrity and high-volume patient records at North Florida Surgeons. 
+    I'm multilingual in English, Turkish, and Persian, and passionate about turning raw data 
+    into actionable insight.
+  </p>
+</section>
+
+<section>
+  <h2>Projects</h2>
+  <div class="projects">
+
+    <div class="card">
+      <h3>Netflix EDA Analysis</h3>
+      <span class="tag">Python</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">Seaborn</span>
+      <p>Exploratory data analysis on 8,800+ Netflix titles. Uncovered trends in content type, country distribution, ratings, and growth over time using Python visualizations.</p>
+      <a href="https://github.com/Fahimah5/netflix-eda-analysis" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="card">
+      <h3>SQL Business Analysis — Chinook</h3>
+      <span class="tag">SQL</span>
+      <span class="tag">SQLite</span>
+      <span class="tag">Pandas</span>
+      <p>Queried a multi-table music store database to answer business questions around revenue, top customers, best-selling artists, and popular genres.</p>
+      <a href="https://github.com/Fahimah5/chinook-sql-analysis" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="card">
+      <h3>Netflix Content Dashboard</h3>
+      <span class="tag">Tableau</span>
+      <span class="tag">Data Visualization</span>
+      <p>Interactive 4-chart Tableau dashboard visualizing Netflix content trends by type, country, rating, and year — published live on Tableau Public.</p>
+      <a href="ADD YOUR TABLEAU LINK HERE" target="_blank">View Dashboard →</a>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-box">
+      <h4>Languages & Libraries</h4>
+      <p>Python, Pandas, NumPy, Matplotlib, Seaborn, SQL</p>
+    </div>
+    <div class="skill-box">
+      <h4>Data Analysis</h4>
+      <p>Exploratory Data Analysis, Data Cleaning, Statistical Analysis, Data Visualization</p>
+    </div>
+    <div class="skill-box">
+      <h4>Tools & Platforms</h4>
+      <p>Jupyter Notebook, Tableau Public, Git/GitHub, Excel</p>
+    </div>
+    <div class="skill-box">
+      <h4>Languages</h4>
+      <p>English (Fluent), Turkish (Fluent), Persian (Fluent)</p>
+    </div>
+  </div>
+</section>
+
+<section class="certs">
+  <h2>Certifications</h2>
+  <ul>
+    <li>📜 SQL for Data Science — University of California, Davis (Coursera) — December 2025</li>
+    <li>📜 Programming for Everybody (Python) — University of Michigan (Coursera) — October 2025</li>
+    <li>📜 Foundations: Data, Data, Everywhere — Google (Coursera) — January 2026</li>
+    <li>📜 IBM Data Science Professional Certificate — IBM (Coursera) — 2026</li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2026 Fahimah Mohammad Hossain &nbsp;|&nbsp;
+  <a href="https://github.com/Fahimah5">github.com/Fahimah5</a></p>
+</footer>
+
+</body>
+</html>
