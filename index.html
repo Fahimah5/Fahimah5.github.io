@@ -1,588 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fahimah Mohammad Hossain | Data Science Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --navy: #1F3A5F;
-      --blue: #2e6da4;
-      --light-blue: #90cdf4;
-      --accent: #4a9fd4;
-      --bg: #f4f6f9;
-      --card: #ffffff;
-      --text: #1a202c;
-      --muted: #555f70;
-      --border: #e2e8f0;
-      --tag-bg: #e8f0fe;
-      --tag-color: #2e6da4;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, #1F3A5F 0%, #2e6da4 60%, #4a9fd4 100%);
-      color: white;
-      padding: 70px 20px 50px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    header h1 {
-      font-size: clamp(2em, 5vw, 3.2em);
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 8px;
-    }
-
-    header .subtitle {
-      font-size: 1.1em;
-      opacity: 0.85;
-      margin-bottom: 6px;
-      font-weight: 300;
-    }
-
-    header .contact {
-      font-size: 0.9em;
-      opacity: 0.8;
-      margin-bottom: 20px;
-    }
-
-    header .contact a {
-      color: var(--light-blue);
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    header .contact a:hover { text-decoration: underline; }
-
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .badge {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 0.82em;
-      font-family: 'Fira Code', monospace;
-      letter-spacing: 0.3px;
-    }
-
-    /* LAYOUT */
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    section {
-      padding: 50px 0 10px;
-    }
-
-    .section-title {
-      font-size: 0.78em;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--border), transparent);
-    }
-
-    /* ABOUT */
-    .about-text {
-      font-size: 1.05em;
-      color: var(--muted);
-      line-height: 1.9;
-      max-width: 780px;
-    }
-
-    .about-text p { margin-bottom: 14px; }
-    .about-text p:last-child { margin-bottom: 0; }
-
-    /* EDUCATION */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-
-    .edu-card {
-      background: var(--card);
-      border-radius: 10px;
-      padding: 20px 24px;
-      border-left: 4px solid var(--blue);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-
-    .edu-card h3 {
-      font-size: 0.95em;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-
-    .edu-card p {
-      font-size: 0.85em;
-      color: var(--muted);
-    }
-
-    .edu-card .degree {
-      font-size: 0.82em;
-      color: var(--blue);
-      font-weight: 500;
-      margin-top: 4px;
-    }
-
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-      border-top: 3px solid var(--blue);
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    }
-
-    .project-card h3 {
-      font-size: 1em;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .tag {
-      background: var(--tag-bg);
-      color: var(--tag-color);
-      font-size: 0.72em;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-family: 'Fira Code', monospace;
-      font-weight: 500;
-    }
-
-    .project-card ul {
-      list-style: none;
-      flex: 1;
-      margin-bottom: 18px;
-    }
-
-    .project-card ul li {
-      font-size: 0.87em;
-      color: var(--muted);
-      padding: 4px 0;
-      padding-left: 14px;
-      position: relative;
-      line-height: 1.5;
-    }
-
-    .project-card ul li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.85em;
-    }
-
-    .project-link {
-      display: inline-block;
-      background: var(--navy);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.82em;
-      font-weight: 500;
-      transition: background 0.2s;
-      margin-right: 8px;
-      margin-top: 4px;
-    }
-
-    .project-link:hover { background: var(--blue); }
-
-    .project-link.secondary {
-      background: transparent;
-      color: var(--blue);
-      border: 1px solid var(--blue);
-    }
-
-    .project-link.secondary:hover {
-      background: var(--tag-bg);
-    }
-
-    .accuracy-badge {
-      display: inline-block;
-      background: #d4edda;
-      color: #155724;
-      font-size: 0.75em;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-weight: 600;
-      margin-left: 8px;
-    }
-
-    /* WORK EXPERIENCE */
-    .work-item {
-      background: var(--card);
-      border-radius: 10px;
-      padding: 24px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      border-left: 4px solid var(--accent);
-    }
-
-    .work-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .work-header h3 {
-      font-size: 0.97em;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .work-header .date {
-      font-size: 0.82em;
-      color: var(--muted);
-      font-style: italic;
-      white-space: nowrap;
-    }
-
-    .work-item ul {
-      list-style: none;
-    }
-
-    .work-item ul li {
-      font-size: 0.88em;
-      color: var(--muted);
-      padding: 5px 0;
-      padding-left: 16px;
-      position: relative;
-      line-height: 1.6;
-    }
-
-    .work-item ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--blue);
-      font-weight: 700;
-    }
-
-    /* SKILLS */
-    .skills-section {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      margin-bottom: 24px;
-    }
-
-    .skill-row {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
-
-    .skill-row:last-child { margin-bottom: 0; }
-
-    .skill-label {
-      font-size: 0.8em;
-      font-weight: 600;
-      color: var(--navy);
-      min-width: 90px;
-      padding-top: 4px;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      flex: 1;
-    }
-
-    /* CERTIFICATIONS */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 12px;
-    }
-
-    .cert-item {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 14px 18px;
-      border-left: 3px solid var(--blue);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      font-size: 0.87em;
-    }
-
-    .cert-item .cert-name {
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 2px;
-    }
-
-    .cert-item .cert-meta {
-      color: var(--muted);
-      font-size: 0.85em;
-    }
-
-    /* LANGUAGES */
-    .lang-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .lang-item {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 12px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      font-size: 0.9em;
-      color: var(--navy);
-      font-weight: 500;
-      border: 1px solid var(--border);
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.65);
-      text-align: center;
-      padding: 32px 20px;
-      margin-top: 60px;
-      font-size: 0.85em;
-    }
-
-    footer a {
-      color: var(--light-blue);
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    footer a:hover { text-decoration: underline; }
-
-    @media (max-width: 600px) {
-      .work-header { flex-direction: column; }
-      .skill-label { min-width: 100%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fahimah Mohammad Hossain | Data Science Portfolio</title>
+<style>
+  :root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px 50px;
+  }
+  header h1 { font-size: 2.4rem; margin-bottom: 6px; }
+  header .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
+  .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 24px; }
+  .contact a {
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+  .contact a:hover { background: rgba(255,255,255,0.2); }
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 700px; margin: 0 auto; }
+  .badges span {
+    background: rgba(255,255,255,0.18);
+    padding: 4px 12px;
+    border-radius: 14px;
+    font-size: 0.85rem;
+  }
+  main { max-width: 900px; margin: 0 auto; padding: 30px 20px 50px; }
+  section { margin-bottom: 36px; }
+  section > h2 {
+    font-size: 1.5rem;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent-light);
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+  .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+  .tag {
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .accuracy {
+    background: #dcfce7;
+    color: #166534;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .link { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 600; text-decoration: none; }
+  .link:hover { text-decoration: underline; }
+  .skills-title { font-weight: 600; margin: 4px 0; }
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .cert-grid .card { margin-bottom: 0; }
+  .cert-grid h3 { font-size: 1rem; }
+  .lang-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .lang-row .card { flex: 1; min-width: 160px; text-align: center; margin-bottom: 0; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.8rem; }
+  }
+</style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <h1>Fahimah Mohammad Hossain</h1>
-  <p class="subtitle">Data Scientist | Jacksonville, FL</p>
-  <p class="contact">
+  <p class="subtitle">Data Science Student | Jacksonville, FL</p>
+  <div class="contact">
     <a href="mailto:fahimah.01gholami@gmail.com">fahimah.01gholami@gmail.com</a>
     <a href="tel:9044220722">(904)-422-0722</a>
     <a href="https://github.com/Fahimah5" target="_blank">GitHub</a>
     <a href="https://public.tableau.com/app/profile/fahimah.mohammad.hossain/vizzes" target="_blank">Tableau Public</a>
-  </p>
+  </div>
   <div class="badges">
-    <span class="badge">Python</span>
-    <span class="badge">SQL</span>
-    <span class="badge">Tableau</span>
-    <span class="badge">Power BI</span>
-    <span class="badge">Scikit-learn</span>
-    <span class="badge">AWS</span>
-    <span class="badge">Git/GitHub</span>
-    <span class="badge">Multilingual</span>
+    <span>Python</span><span>SQL</span><span>Tableau</span><span>Power BI</span>
+    <span>Scikit-learn</span><span>AWS</span><span>Git/GitHub</span><span>Multilingual</span>
   </div>
 </header>
 
-<div class="container">
+<main>
 
-  <!-- ABOUT -->
-<section>
-  <div class="section-title">About Me</div>
-  <div class="about-text">
-    <p>Data Science student at UNF skilled in Python, SQL, Tableau, 
-    and Power BI with 7 certifications from Google, IBM, Microsoft, and 
-    AWS — seeking a data science internship to apply analytical skills 
-    to real-world problems. Fluent in English, Turkish, and Persian.</p>
-    <p>Outside of data, I enjoy Yoga, pilates, golf, and badminton.</p>
-  </div>
-</section>
-
-  <!-- EDUCATION -->
   <section>
-    <div class="section-title">Education</div>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <h3>University of North Florida (UNF)</h3>
-        <p class="degree">Bachelor of Science, Data Science</p>
-        <p>Currently Enrolled | Expected Graduation: 2028 | Jacksonville, FL</p>
-      </div>
-      <div class="edu-card">
-        <h3>Florida State College at Jacksonville (FSCJ)</h3>
-        <p class="degree">Associate of Arts, Data Science</p>
-        <p>Graduated: 2026 | Jacksonville, FL</p>
-      </div>
+    <h2>About Me</h2>
+    <div class="card">
+      <p>Data Science student at the University of North Florida skilled in Python, SQL, machine learning, and data visualization, with hands-on project and data experience. I hold 6 certifications from Google, IBM, Microsoft, AWS, UC Davis, and the University of Michigan. I am seeking a Data Science Internship to apply my analytical and technical skills to real-world problems. Fluent in English, Turkish, and Persian.</p>
+      <p style="margin-top:10px;">Outside of data, I enjoy yoga, pilates, golf, and badminton.</p>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section>
-    <div class="section-title">Projects</div>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <h3>Netflix EDA Analysis</h3>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">Matplotlib</span>
-          <span class="tag">Seaborn</span>
-        </div>
-        <ul>
-          <li>Performed exploratory data analysis on 8,000+ Netflix titles uncovering trends in content type, release patterns, and genre distribution.</li>
-          <li>Built visualizations with matplotlib and seaborn, documented methodology and results in a professional GitHub README.</li>
-        </ul>
-        <div>
-          <a class="project-link" href="https://github.com/Fahimah5/netflix-eda-analysis" target="_blank">View on GitHub →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>SQL Business Analysis — Chinook Database</h3>
-        <div class="tags">
-          <span class="tag">SQL</span>
-          <span class="tag">SQLite</span>
-          <span class="tag">Pandas</span>
-        </div>
-        <ul>
-          <li>Queried a multi-table relational database to analyze sales performance, top-selling genres, and customer purchasing behavior.</li>
-          <li>Wrote and optimized SQL queries using joins, aggregations, and subqueries, documented business insights in GitHub.</li>
-        </ul>
-        <div>
-          <a class="project-link" href="https://github.com/Fahimah5/chinook-sql-analysis" target="_blank">View on GitHub →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>Netflix Content Analysis Dashboard</h3>
-        <div class="tags">
-          <span class="tag">Tableau</span>
-          <span class="tag">Data Visualization</span>
-        </div>
-        <ul>
-          <li>Built an interactive 4-chart dashboard analyzing 8,800+ Netflix titles, visualizing content trends by type, country, rating, and year.</li>
-          <li>Published live on Tableau Public, demonstrating ability to communicate data insights to non-technical audiences.</li>
-        </ul>
-        <div>
-          <a class="project-link" href="https://public.tableau.com/app/profile/fahimah.mohammad.hossain/vizzes" target="_blank">View Dashboard →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>Titanic Survival Prediction — ML Model <span class="accuracy-badge">82.68% Accuracy</span></h3>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">Random Forest</span>
-          <span class="tag">ML</span>
-        </div>
-        <ul>
-          <li>Built a Random Forest Classifier to predict Titanic passenger survival with 82.68% accuracy using Python and Scikit-learn.</li>
-          <li>Performed data cleaning, feature engineering, and model evaluation on 891 passengers, identifying fare, gender, and age as top survival predictors.</li>
-        </ul>
-        <div>
-          <a class="project-link" href="https://github.com/Fahimah5/titanic-ml-model" target="_blank">View on GitHub →</a>
-        </div>
-      </div>
-
+    <h2>Education</h2>
+    <div class="card">
+      <h3>University of North Florida (UNF)</h3>
+      <p>Bachelor of Science, Data Science</p>
+      <p class="meta">Currently Enrolled | Expected Graduation: 2028 | Jacksonville, FL</p>
+    </div>
+    <div class="card">
+      <h3>Florida State College at Jacksonville (FSCJ)</h3>
+      <p>Associate of Arts, Data Science</p>
+      <p class="meta">Graduated: 2026 | Jacksonville, FL</p>
     </div>
   </section>
 
-  <!-- WORK EXPERIENCE -->
   <section>
-    <div class="section-title">Work Experience</div>
+    <h2>Projects</h2>
 
-    <div class="work-item">
-      <div class="work-header">
-        <h3>Administrative Assistant — North Florida Surgeons, Baptist Jacksonville Division</h3>
-        <span class="date">August 2025 – Present | Jacksonville, FL</span>
-      </div>
+    <div class="card">
+      <h3>Netflix EDA Analysis</h3>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div>
+      <ul>
+        <li>Performed exploratory data analysis on a Netflix content dataset to uncover trends in content type, release patterns, and genre distribution across 8,000+ titles.</li>
+        <li>Built visualizations with matplotlib and seaborn to communicate findings, and documented methodology and results in a professional GitHub README.</li>
+      </ul>
+      <a class="link" href="https://github.com/Fahimah5/netflix-eda-analysis" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="card">
+      <h3>SQL Business Analysis — Chinook Database</h3>
+      <div class="tags"><span class="tag">SQL</span><span class="tag">SQLite</span><span class="tag">Pandas</span></div>
+      <ul>
+        <li>Queried a multi-table relational database to analyze sales performance, top-selling genres, and customer purchasing behavior.</li>
+        <li>Wrote and optimized SQL queries using joins, aggregations, and subqueries, and documented methodology and business insights in GitHub.</li>
+      </ul>
+      <a class="link" href="https://github.com/Fahimah5/chinook-sql-analysis" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="card">
+      <h3>Netflix Content Analysis Dashboard</h3>
+      <div class="tags"><span class="tag">Tableau</span><span class="tag">Data Visualization</span></div>
+      <ul>
+        <li>Built an interactive 4-chart dashboard analyzing 8,800+ Netflix titles, visualizing content trends by type, country, rating, and year using Tableau Public.</li>
+        <li>Published the dashboard live on Tableau Public, demonstrating the ability to communicate data insights to non-technical audiences.</li>
+      </ul>
+      <a class="link" href="https://public.tableau.com/app/profile/fahimah.mohammad.hossain/vizzes" target="_blank">View Dashboard →</a>
+    </div>
+
+    <div class="card">
+      <h3>Titanic Survival Prediction — ML Model <span class="accuracy">82.68% Accuracy</span></h3>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Random Forest</span><span class="tag">ML</span></div>
+      <ul>
+        <li>Built a Random Forest Classifier to predict Titanic passenger survival with 82.68% accuracy using Python and Scikit-learn.</li>
+        <li>Performed data cleaning, feature engineering, and model evaluation on 891 passengers, identifying fare, gender, and age as top survival predictors.</li>
+      </ul>
+      <a class="link" href="https://github.com/Fahimah5/titanic-ml-model" target="_blank">View on GitHub →</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
+
+    <div class="card">
+      <h3>Administrative Assistant — North Florida Surgeons, Baptist Jacksonville Division</h3>
+      <p class="meta">August 2025 – Present | Jacksonville, FL</p>
       <ul>
         <li>Managed and maintained 100+ daily Electronic Health Record (EHR) entries in Athenahealth, applying data integrity and quality control principles to ensure accuracy across patient records.</li>
         <li>Identified and resolved data discrepancies in prior authorizations and referrals by cross-referencing records and applying structured data validation methods under HIPAA compliance standards.</li>
-        <li>Collected, tracked, and analyzed patient scheduling data using Excel, building reports to identify trends and support operational decision-making.</li>
+        <li>Collected, tracked, and analyzed scheduling data using Excel to identify operational trends and support data-driven decision-making.</li>
       </ul>
     </div>
 
-    <div class="work-item">
-      <div class="work-header">
-        <h3>Production Line Lead — Jinko Solar</h3>
-        <span class="date">January 2024 – January 2025 | Jacksonville, FL</span>
-      </div>
+    <div class="card">
+      <h3>Production Line Lead — Jinko Solar</h3>
+      <p class="meta">January 2024 – January 2025 | Jacksonville, FL</p>
       <ul>
         <li>Led production line operations to meet daily output targets by collaborating cross-functionally with process engineers, equipment, and quality teams to identify and eliminate bottlenecks, particularly at rework stages.</li>
         <li>Conducted operator training programs to ensure consistent quality and adherence to safety and process standards.</li>
@@ -591,97 +215,69 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section>
-    <div class="section-title">Skills</div>
-    <div class="skills-section">
-      <div class="skill-row">
-        <span class="skill-label">Technical</span>
-        <div class="skill-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Matplotlib</span>
-          <span class="tag">Seaborn</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">SQL</span>
-          <span class="tag">Tableau Public</span>
-          <span class="tag">Power BI</span>
-          <span class="tag">Excel</span>
-          <span class="tag">Jupyter Notebook</span>
-          <span class="tag">Git/GitHub</span>
-          <span class="tag">AWS</span>
-        </div>
+    <h2>Skills</h2>
+    <div class="card">
+      <p class="skills-title">Technical</p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span>
+        <span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">SQL</span><span class="tag">Tableau</span>
+        <span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">Jupyter Notebook</span><span class="tag">GitHub</span><span class="tag">AWS</span>
       </div>
-      <div class="skill-row">
-        <span class="skill-label">Analytical</span>
-        <div class="skill-tags">
-          <span class="tag">Exploratory Data Analysis</span>
-          <span class="tag">Data Cleaning</span>
-          <span class="tag">Statistical Analysis</span>
-          <span class="tag">Data Visualization</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">SQL Querying</span>
-          <span class="tag">Relational Databases</span>
-        </div>
+      <p class="skills-title" style="margin-top:14px;">Analytical</p>
+      <div class="tags">
+        <span class="tag">Exploratory Data Analysis (EDA)</span><span class="tag">Data Cleaning</span><span class="tag">Statistical Analysis</span>
+        <span class="tag">Feature Engineering</span><span class="tag">Machine Learning</span><span class="tag">Model Evaluation</span>
+        <span class="tag">Data Visualization</span><span class="tag">Relational Databases</span>
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
   <section>
-    <div class="section-title">Certifications</div>
-    <div class="certs-grid">
-      <div class="cert-item">
-        <div class="cert-name">Programming for Everybody (Python)</div>
-        <div class="cert-meta">University of Michigan (Coursera) — October 2025</div>
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      <div class="card">
+        <h3>Programming for Everybody (Python)</h3>
+        <p class="meta">University of Michigan (Coursera) — October 2025</p>
       </div>
-      <div class="cert-item">
-        <div class="cert-name">SQL for Data Science</div>
-        <div class="cert-meta">UC Davis (Coursera) — December 2025</div>
+      <div class="card">
+        <h3>SQL for Data Science</h3>
+        <p class="meta">UC Davis (Coursera) — December 2025</p>
       </div>
-      <div class="cert-item">
-        <div class="cert-name">Foundations: Data, Data, Everywhere</div>
-        <div class="cert-meta">Google (Coursera) — January 2026</div>
+      <div class="card">
+        <h3>Foundations: Data, Data, Everywhere</h3>
+        <p class="meta">Google (Coursera) — January 2026</p>
       </div>
-      <div class="cert-item">
-        <div class="cert-name">IBM Data Science Professional Certificate</div>
-        <div class="cert-meta">IBM (Coursera) — March 2026</div>
+      <div class="card">
+        <h3>IBM Data Science Professional Certificate</h3>
+        <p class="meta">IBM (Coursera) — March 2026</p>
       </div>
-      <div class="cert-item">
-        <div class="cert-name">Intro to Programming</div>
-        <div class="cert-meta">Kaggle — May 2026</div>
+      <div class="card">
+        <h3>AWS Cloud Technical Essentials</h3>
+        <p class="meta">Amazon Web Services (Coursera) — August 2026</p>
       </div>
-      <div class="cert-item">
-        <div class="cert-name">AWS Cloud Technical Essentials</div>
-        <div class="cert-meta">Amazon Web Services (Coursera) — August 2026</div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-name">Microsoft Power BI Data Analyst Professional Certificate</div>
-        <div class="cert-meta">Microsoft (Coursera) — September 2026</div>
+      <div class="card">
+        <h3>Microsoft Power BI Data Analyst Professional Certificate</h3>
+        <p class="meta">Microsoft (Coursera) — September 2026</p>
       </div>
     </div>
   </section>
 
-  <!-- LANGUAGES -->
   <section>
-    <div class="section-title">Languages</div>
+    <h2>Languages</h2>
     <div class="lang-row">
-      <div class="lang-item"> English — Fluent</div>
-      <div class="lang-item"> Persian — Fluent</div>
-      <div class="lang-item"> Turkish — Fluent</div>
+      <div class="card"><h3>English</h3><p class="meta">Fluent</p></div>
+      <div class="card"><h3>Persian</h3><p class="meta">Fluent</p></div>
+      <div class="card"><h3>Turkish</h3><p class="meta">Fluent</p></div>
     </div>
   </section>
 
-</div>
+</main>
 
-<!-- FOOTER -->
 <footer>
-  <p>
-    © 2026 Fahimah Mohammad Hossain &nbsp;|&nbsp;
-    <a href="https://github.com/Fahimah5" target="_blank">github.com/Fahimah5</a> &nbsp;|&nbsp;
-    <a href="https://fahimah5.github.io" target="_blank">fahimah5.github.io</a>
-  </p>
+  © 2026 Fahimah Mohammad Hossain |
+  <a href="https://github.com/Fahimah5" target="_blank">github.com/Fahimah5</a> |
+  <a href="https://fahimah5.github.io">fahimah5.github.io</a>
 </footer>
 
 </body>
